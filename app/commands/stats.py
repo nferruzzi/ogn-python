@@ -58,7 +58,7 @@ def create_country(start, end):
         result = create_country_stats(session=db.session, date=single_date)
 
 
-from app.model import *
+from app.model import Device
 
 
 @user_cli.command("update_devices_name")

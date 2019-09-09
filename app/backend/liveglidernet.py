@@ -1,6 +1,6 @@
-from datetime import datetime, timedelta, timezone, date
+from datetime import datetime, timezone
 
-from app.model import AircraftBeacon, Device, Receiver
+from app.model import AircraftBeacon
 
 from app import db
 from app.model import ReceiverBeacon
@@ -28,7 +28,7 @@ def rec(min_timestamp, min_online_timestamp):
     lines.append("<markers>")
     lines.append('<m e="0"/>')
     for receiver_beacon in last_seen_query:
-        if receiver_beacon.location == None or receiver_beacon.name.startswith("FNB"):
+        if receiver_beacon.location is None or receiver_beacon.name.startswith("FNB"):
             continue
         lines.append(
             '<m a="{0}" b="{1:.7f}" c="{2:.7f}" d="{3:1d}"/>'.format(

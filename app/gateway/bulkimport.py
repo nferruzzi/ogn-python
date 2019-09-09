@@ -385,7 +385,7 @@ def file_import(path):
     results = list()
     for (root, dirs, files) in os.walk(path):
         for file in sorted(files):
-            match = re.match("OGN_log\.txt_([0-9]{4}\-[0-9]{2}\-[0-9]{2})\.gz$", file)
+            match = re.match(r"OGN_log\.txt_([0-9]{4}\-[0-9]{2}\-[0-9]{2})\.gz$", file)
             if match:
                 results.append({"filepath": os.path.join(root, file), "datestr": match.group(1)})
 

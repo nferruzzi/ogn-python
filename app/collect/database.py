@@ -1,9 +1,7 @@
-from sqlalchemy import distinct
-from sqlalchemy.sql import null, and_, func, not_, case
-from sqlalchemy.dialects import postgresql
+from sqlalchemy.sql import null, and_, func, case
 from sqlalchemy.dialects.postgresql import insert
 
-from app.model import Country, DeviceInfo, DeviceInfoOrigin, AircraftBeacon, ReceiverBeacon, Device, Receiver
+from app.model import Country, DeviceInfo, DeviceInfoOrigin, Receiver
 from app.utils import get_ddb, get_flarmnet
 
 from app import app

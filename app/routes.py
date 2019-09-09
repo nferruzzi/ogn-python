@@ -6,7 +6,7 @@ from app import app
 from app import db
 from app import cache
 
-from app.model import *
+from app.model import Airport, Country, Device, Logbook, Receiver, ReceiverStats
 
 
 @cache.cached(key_prefix="countries_in_receivers")

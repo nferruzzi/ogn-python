@@ -11,7 +11,7 @@ from app.flask_celery import make_celery
 app = Flask(__name__)
 
 # Load the configuration
-app.config.from_object('app.config.default')
+app.config.from_object("app.config.default")
 app.config.from_envvar("OGN_CONFIG_MODULE", silent=True)
 
 # Initialize other things
