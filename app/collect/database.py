@@ -1,10 +1,9 @@
+from flask import current_app
 from sqlalchemy.sql import null, and_, func, case
 from sqlalchemy.dialects.postgresql import insert
 
 from app.model import Country, DeviceInfo, DeviceInfoOrigin, Receiver
 from app.utils import get_ddb, get_flarmnet
-
-from app import app
 
 
 def upsert(session, model, rows, update_cols):
@@ -44,7 +43,7 @@ def import_ddb(session, logger=None):
     """Import registered devices from the DDB."""
 
     if logger is None:
-        logger = app.logger
+        logger = current_app.logger
 
     logger.info("Import registered devices fom the DDB...")
     counter = update_device_infos(session, DeviceInfoOrigin.ogn_ddb)
@@ -58,7 +57,7 @@ def update_country_code(session, logger=None):
     """Update country code in receivers table if None."""
 
     if logger is None:
-        logger = app.logger
+        logger = current_app.logger
 
     update_receivers = (
         session.query(Receiver)
